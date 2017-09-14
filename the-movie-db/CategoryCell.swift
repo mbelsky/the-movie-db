@@ -13,16 +13,63 @@ class CategoryCell: UITableViewCell, MoviesPresenter {
     @IBOutlet weak var cvMovies: UICollectionView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
-    private var movies: [Movie]? {
+    fileprivate let movieCellId = "MovieCell"
+
+    fileprivate var movies = [Movie]() {
         didSet {
-            let hasMovies = nil != movies
-            activityIndicator.isHidden = hasMovies
-            cvMovies.isHidden = !hasMovies
+            activityIndicator.isHidden = !movies.isEmpty
+            cvMovies.isHidden = movies.isEmpty
+
+            cvMovies.reloadData()
         }
     }
 
+    override func awakeFromNib() {
+        super.awakeFromNib()
+
+        let cvLayout = UICollectionViewFlowLayout()
+        cvLayout.scrollDirection = .horizontal
+        cvMovies.collectionViewLayout = cvLayout
+        cvMovies.register(UINib(nibName: "MovieCell", bundle: nil), forCellWithReuseIdentifier: movieCellId)
+        cvMovies.showsHorizontalScrollIndicator = false
+
+        cvMovies.dataSource = self
+        cvMovies.delegate = self
+    }
+
     func present(_ movies: [Movie]?) {
-        self.movies = movies
+        if let movies = movies {
+            self.movies = movies
+        } else {
+            self.movies.removeAll()
+        }
+    }
+}
+
+//MARK: - UICollectionViewDataSource
+extension CategoryCell: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return movies.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: movieCellId,
+                                                            for: indexPath) as? MovieCell else {
+            fatalError()
+        }
+        cell.movie = movies[indexPath.row]
+        return cell
+    }
+}
+
+extension CategoryCell: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 230, height: collectionView.bounds.height)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets.zero
     }
 }
 

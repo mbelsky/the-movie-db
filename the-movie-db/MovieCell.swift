@@ -11,4 +11,9 @@ import UIKit
 class MovieCell: UICollectionViewCell {
     
     @IBOutlet weak var lblName: UILabel!
+    var movie: Movie! {
+        didSet {
+            lblName.text = movie.name
+        }
+    }
 }
