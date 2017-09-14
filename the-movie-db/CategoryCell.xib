@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CategoryCell" rowHeight="160" id="fgq-Bn-mGz" customClass="CategoryCell" customModule="the_movie_db" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fgq-Bn-mGz" id="6dg-3s-a0c">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="159.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="DCz-hx-fSq">
+                        <rect key="frame" x="8" y="8" width="359" height="143.5"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="z3O-ot-VYU">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                    </collectionView>
+                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="1GG-uy-2re">
+                        <rect key="frame" x="177" y="69" width="20" height="20"/>
+                    </activityIndicatorView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailingMargin" secondItem="DCz-hx-fSq" secondAttribute="trailing" id="JpN-5h-oJ0"/>
+                    <constraint firstItem="DCz-hx-fSq" firstAttribute="leading" secondItem="6dg-3s-a0c" secondAttribute="leadingMargin" id="Pob-e8-RAL"/>
+                    <constraint firstItem="1GG-uy-2re" firstAttribute="centerX" secondItem="6dg-3s-a0c" secondAttribute="centerX" id="PpU-VS-Ok9"/>
+                    <constraint firstItem="1GG-uy-2re" firstAttribute="centerY" secondItem="6dg-3s-a0c" secondAttribute="centerY" id="QYy-VB-GVG"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="DCz-hx-fSq" secondAttribute="bottom" id="Ts7-Jm-BWN"/>
+                    <constraint firstItem="DCz-hx-fSq" firstAttribute="top" secondItem="6dg-3s-a0c" secondAttribute="topMargin" id="tZx-V7-7VL"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="activityIndicator" destination="1GG-uy-2re" id="1yj-Kv-kf9"/>
+                <outlet property="cvMovies" destination="DCz-hx-fSq" id="Trr-Fr-loR"/>
+            </connections>
+            <point key="canvasLocation" x="-36.5" y="-128"/>
+        </tableViewCell>
+    </objects>
+</document>
