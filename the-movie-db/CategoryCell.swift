@@ -65,11 +65,12 @@ extension CategoryCell: UICollectionViewDataSource {
 extension CategoryCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 230, height: collectionView.bounds.height)
+        return CGSize(width: 230, height: collectionView.bounds.height + collectionView.contentInset.top
+            + collectionView.contentInset.bottom)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: K.padding, bottom: 0, right: K.padding)
+        return UIEdgeInsets(top: 0, left: K.padding, bottom: K.padding, right: K.padding)
     }
 }
 
