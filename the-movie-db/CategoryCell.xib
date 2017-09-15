@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -20,7 +19,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="DCz-hx-fSq">
-                        <rect key="frame" x="8" y="8" width="359" height="143.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="159.5"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="z3O-ot-VYU">
                             <size key="itemSize" width="50" height="50"/>
@@ -34,12 +33,12 @@
                     </activityIndicatorView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailingMargin" secondItem="DCz-hx-fSq" secondAttribute="trailing" id="JpN-5h-oJ0"/>
-                    <constraint firstItem="DCz-hx-fSq" firstAttribute="leading" secondItem="6dg-3s-a0c" secondAttribute="leadingMargin" id="Pob-e8-RAL"/>
+                    <constraint firstItem="DCz-hx-fSq" firstAttribute="centerX" secondItem="6dg-3s-a0c" secondAttribute="centerX" id="CtD-ck-e9L"/>
+                    <constraint firstItem="DCz-hx-fSq" firstAttribute="height" secondItem="6dg-3s-a0c" secondAttribute="height" id="JDb-qU-i71"/>
                     <constraint firstItem="1GG-uy-2re" firstAttribute="centerX" secondItem="6dg-3s-a0c" secondAttribute="centerX" id="PpU-VS-Ok9"/>
                     <constraint firstItem="1GG-uy-2re" firstAttribute="centerY" secondItem="6dg-3s-a0c" secondAttribute="centerY" id="QYy-VB-GVG"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="DCz-hx-fSq" secondAttribute="bottom" id="Ts7-Jm-BWN"/>
-                    <constraint firstItem="DCz-hx-fSq" firstAttribute="top" secondItem="6dg-3s-a0c" secondAttribute="topMargin" id="tZx-V7-7VL"/>
+                    <constraint firstItem="DCz-hx-fSq" firstAttribute="width" secondItem="6dg-3s-a0c" secondAttribute="width" id="Qmk-I6-zVI"/>
+                    <constraint firstItem="DCz-hx-fSq" firstAttribute="centerY" secondItem="6dg-3s-a0c" secondAttribute="centerY" id="WU8-n8-onF"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

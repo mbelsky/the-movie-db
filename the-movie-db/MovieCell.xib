@@ -19,8 +19,8 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s9Z-nA-i5x">
-                        <rect key="frame" x="16" y="0.0" width="266" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <rect key="frame" x="0.0" y="0.0" width="282" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -29,7 +29,7 @@
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="s9Z-nA-i5x" secondAttribute="trailing" constant="8" id="0wK-Id-Bub"/>
                 <constraint firstItem="s9Z-nA-i5x" firstAttribute="top" secondItem="clB-Ew-6ft" secondAttribute="top" id="SUP-61-fbK"/>
-                <constraint firstItem="s9Z-nA-i5x" firstAttribute="leading" secondItem="clB-Ew-6ft" secondAttribute="leading" constant="16" id="s3w-Dr-6zP"/>
+                <constraint firstItem="s9Z-nA-i5x" firstAttribute="leading" secondItem="clB-Ew-6ft" secondAttribute="leading" id="s3w-Dr-6zP"/>
             </constraints>
             <size key="customSize" width="290" height="86"/>
             <connections>

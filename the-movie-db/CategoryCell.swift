@@ -69,10 +69,14 @@ extension CategoryCell: UICollectionViewDelegateFlowLayout {
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets.zero
+        return UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
     }
 }
 
 protocol MoviesPresenter: class {
     func present(_ movies: [Movie]?)
+}
+
+extension Hashable where Self: MoviesPresenter {
+    var hashValue: Int { return 0 }
 }

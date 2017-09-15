@@ -48,7 +48,7 @@ extension ViewController {
     }
 
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return sectionHeaderFont.lineHeight + labelPadding
+        return sectionHeaderFont.lineHeight// + labelPadding
     }
 
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
