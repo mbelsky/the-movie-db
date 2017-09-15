@@ -6,19 +6,26 @@
 //  Copyright © 2017 Maxim Belsky. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class MoviesManager {
 
     static let `default` = MoviesManager()
 
-    fileprivate static let discoverMovieUrl = "https://api.themoviedb.org/3/discover/movie"
     fileprivate static let apiKey = "74a514887c48a995d28c5a4352a6d18a"
+    fileprivate static let baseUrl = "https://api.themoviedb.org/3/"
+    fileprivate static let configurationUrl = MoviesManager.baseUrl + "configuration?api_key=" + MoviesManager.apiKey
+    fileprivate static let discoverMovieUrl = MoviesManager.baseUrl + "discover/movie"
+
+    fileprivate let serialQueue = DispatchQueue(label: "GetTmdbSystemConfigurationInfoQueue")
+    fileprivate var postersBaseUrl: String?
 
     private var movies = [Category: [Movie]]()
+    private var imageViews = [UIImageView: Movie]()
 
     private init() {}
 
+    //MARK: - Movies functions
     func loadMovies(`for` category: Category, `in` presenter: MoviesPresenter) {
         presentMovies(for: category, in: presenter)
 
@@ -70,6 +77,63 @@ class MoviesManager {
         }
 
         return urlComponents?.url
+    }
+
+    //MARK: - Posters functions
+    func loadPoster(`in` imageView: UIImageView, `for` movie: Movie) {
+        imageView.image = nil
+        imageViews[imageView] = movie
+
+        DispatchQueue.global(qos: .userInitiated).async {
+            self.getTmdbSystemConfigurationInfo()
+            guard let postersBaseUrl = self.postersBaseUrl,
+                let imageUrl = URL(string: postersBaseUrl + movie.posterPath)
+                else {
+                    return
+            }
+
+            URLSession.shared.dataTask(with: imageUrl) { data, _, _ in
+                guard let data = data, let image = UIImage(data: data) else { return }
+                DispatchQueue.main.async {
+                    let imageView = self.imageViews.filter { return $0.1 == movie }.first?.key
+                    if nil != imageView {
+                        imageView!.image = image
+                        self.imageViews.removeValue(forKey: imageView!)
+                    }
+                }
+                }.resume()
+        }
+    }
+
+    private func getTmdbSystemConfigurationInfo() {
+        if nil != postersBaseUrl { return }
+
+        serialQueue.sync {
+            if nil != postersBaseUrl { return }
+            guard let url = URL(string: MoviesManager.configurationUrl) else { return }
+
+            let semaphore = DispatchSemaphore(value: 0)
+            URLSession.shared.dataTask(with: url) { data, _, _ in
+                if let data = data,
+                    let json = (try? JSONSerialization.jsonObject(with: data, options: [])) as? [String: Any],
+                    let images = json["images"] as? [String: Any],
+                    let baseUrl = images["secure_base_url"] as? String,
+                    let posterSizes = images["poster_sizes"] as? [String] {
+                    self.postersBaseUrl = baseUrl + self.selectPosterSize(posterSizes)
+                }
+                semaphore.signal()
+                }.resume()
+            _ = semaphore.wait(timeout: .distantFuture)
+        }
+    }
+
+    private func selectPosterSize(_ posterSizes: [String]) -> String {
+        var posterSize = posterSizes.last
+        if posterSizes.count > 2 {
+            posterSize = posterSizes[posterSizes.count - 3]
+        }
+        
+        return posterSize ?? ""
     }
 
     private func presentMovies(`for` category: Category, `in` presenter: MoviesPresenter) {

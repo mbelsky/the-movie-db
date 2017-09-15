@@ -11,9 +11,18 @@ import UIKit
 class MovieCell: UICollectionViewCell {
     
     @IBOutlet weak var lblName: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
+
     var movie: Movie! {
         didSet {
             lblName.text = movie.name
+            MoviesManager.default.loadPoster(in: imageView, for: movie)
         }
+    }
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        imageView.layer.cornerRadius = 4
+        imageView.clipsToBounds = true
     }
 }

@@ -24,15 +24,23 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="79P-I8-bGy">
+                        <rect key="frame" x="0.0" y="20" width="290" height="66"/>
+                    </imageView>
                 </subviews>
             </view>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="s9Z-nA-i5x" secondAttribute="trailing" constant="8" id="0wK-Id-Bub"/>
+                <constraint firstItem="79P-I8-bGy" firstAttribute="top" secondItem="s9Z-nA-i5x" secondAttribute="bottom" id="HTI-U6-xw7"/>
+                <constraint firstItem="79P-I8-bGy" firstAttribute="centerX" secondItem="clB-Ew-6ft" secondAttribute="centerX" id="L9e-dg-Ryu"/>
                 <constraint firstItem="s9Z-nA-i5x" firstAttribute="top" secondItem="clB-Ew-6ft" secondAttribute="top" id="SUP-61-fbK"/>
+                <constraint firstAttribute="bottom" secondItem="79P-I8-bGy" secondAttribute="bottom" id="cnt-Py-6vw"/>
+                <constraint firstItem="79P-I8-bGy" firstAttribute="width" secondItem="clB-Ew-6ft" secondAttribute="width" id="jcZ-Fl-atJ"/>
                 <constraint firstItem="s9Z-nA-i5x" firstAttribute="leading" secondItem="clB-Ew-6ft" secondAttribute="leading" id="s3w-Dr-6zP"/>
             </constraints>
             <size key="customSize" width="290" height="86"/>
             <connections>
+                <outlet property="imageView" destination="79P-I8-bGy" id="WLT-KM-94S"/>
                 <outlet property="lblName" destination="s9Z-nA-i5x" id="Jhe-EN-htl"/>
             </connections>
             <point key="canvasLocation" x="-39" y="90"/>
