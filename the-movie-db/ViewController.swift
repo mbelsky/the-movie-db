@@ -10,7 +10,6 @@ import UIKit
 
 class ViewController: UITableViewController {
 
-    fileprivate let labelPadding: CGFloat = 8
     fileprivate let cellId = "CategoryCell"
 
     override func viewDidLoad() {
@@ -24,11 +23,11 @@ class ViewController: UITableViewController {
         tableHeaderView.text = "Movies"
         tableHeaderView.sizeToFit()
 
-        let containerFrame = CGRect(x: 0, y: 0, width: tableHeaderView.bounds.width + labelPadding,
-                                    height: tableHeaderView.bounds.height + labelPadding)
+        let containerFrame = CGRect(x: 0, y: 0, width: tableHeaderView.bounds.width + K.padding,
+                                    height: tableHeaderView.bounds.height + K.padding)
         let tableHeaderViewContainer = UIView(frame: containerFrame)
         tableHeaderViewContainer.addSubview(tableHeaderView)
-        tableHeaderView.frame.origin.x = labelPadding
+        tableHeaderView.frame.origin.x = K.padding
         tableView.tableHeaderView = tableHeaderViewContainer
         tableView.tableFooterView = UIView()
 
@@ -59,7 +58,7 @@ extension ViewController {
 
         let container = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: header.bounds.height))
         container.addSubview(header)
-        header.frame.origin.x = labelPadding
+        header.frame.origin.x = K.padding
 
         return container
     }

@@ -18,6 +18,7 @@
 		8A2A562A1F6A85D6008A1121 /* MovieCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A2A56291F6A85D6008A1121 /* MovieCell.xib */; };
 		8A2A562C1F6A8640008A1121 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2A562B1F6A8640008A1121 /* MovieCell.swift */; };
 		8A2A562E1F6A8BC2008A1121 /* MoviesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2A562D1F6A8BC2008A1121 /* MoviesManager.swift */; };
+		8AF59B7E1F6BD159005E9F35 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF59B7D1F6BD159005E9F35 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		8A2A56291F6A85D6008A1121 /* MovieCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovieCell.xib; sourceTree = "<group>"; };
 		8A2A562B1F6A8640008A1121 /* MovieCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		8A2A562D1F6A8BC2008A1121 /* MoviesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviesManager.swift; sourceTree = "<group>"; };
+		8AF59B7D1F6BD159005E9F35 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,9 +69,10 @@
 			isa = PBXGroup;
 			children = (
 				8A2A56101F6A5B0F008A1121 /* AppDelegate.swift */,
-				8A2A56121F6A5B0F008A1121 /* ViewController.swift */,
 				8A2A56271F6A6809008A1121 /* Movie.swift */,
 				8A2A562D1F6A8BC2008A1121 /* MoviesManager.swift */,
+				8A2A56121F6A5B0F008A1121 /* ViewController.swift */,
+				8AF59B7D1F6BD159005E9F35 /* Constants.swift */,
 				8A2A56241F6A65EB008A1121 /* Cells */,
 				8A2A56141F6A5B0F008A1121 /* Main.storyboard */,
 				8A2A56171F6A5B0F008A1121 /* Assets.xcassets */,
@@ -168,6 +171,7 @@
 				8A2A56111F6A5B0F008A1121 /* AppDelegate.swift in Sources */,
 				8A2A56281F6A6809008A1121 /* Movie.swift in Sources */,
 				8A2A562C1F6A8640008A1121 /* MovieCell.swift in Sources */,
+				8AF59B7E1F6BD159005E9F35 /* Constants.swift in Sources */,
 				8A2A562E1F6A8BC2008A1121 /* MoviesManager.swift in Sources */,
 				8A2A56261F6A66D6008A1121 /* CategoryCell.swift in Sources */,
 			);
@@ -337,6 +341,7 @@
 				8A2A56211F6A5B0F008A1121 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
